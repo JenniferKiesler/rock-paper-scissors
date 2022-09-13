@@ -1,22 +1,54 @@
-// define array for choices [r, p, s]
-// define var for computerChoice
-// define var for playerChoice
-// define var for wins
-// define var for losses
-// define var for ties
+// Define var for wins, losses, and ties
+var wins = 0;
+var losses = 0;
+var ties = 0;
 
-// prompt playerChoice
+// Define array for choices
+var options = ["R", "P", "S"];
 
-// randomly choose computerChoice
+var playAgain = true;
 
-// compare choices if-else?
-    // if playerChoice is p and computerChoice is r
+while (playAgain) {
+// Define var for playerChoice
+    var playerChoice = prompt("Choose R, P, or S");
 
-// display (alert) results (won, tied, lost round)
+    // Define var for computerChoice
+    var computerChoice = options[Math.floor(Math.random() * options.length)];
 
-// show stats (number of wins, losses, ties)
+    // prompt() playerChoice
 
-// play again? if-else
-    // if ok restart game
-    // else end game
+    // randomly choose computerChoice
 
+    if (computerChoice === options[0]) {
+        alert("Computer chose R");
+    } else if (computerChoice === options[1]) {
+        alert("Computer chose P");
+    } else if (computerChoice === options[2]) {
+        alert("Computer chose S");
+    }
+
+    // Math.floor(Math.random() * 3);
+
+    // compare choices
+    // display (alert) comparison results (won, tied, lost)
+    if (playerChoice === computerChoice) {
+        ties++;
+        alert("It's a tie!");
+    } else if (((playerChoice === "R") && (computerChoice === "S")) || ((playerChoice === "P") && (computerChoice === "R")) || ((playerChoice === "S") && (computerChoice === "P"))) {
+        wins++;
+        alert("You won!");
+    } else {
+        losses++;
+        alert("You lost!");
+    }
+
+    // show stats (number of wins, losses, ties)
+    alert("Wins: " + wins + "\n" + "Losses: " + losses + "\n" + "Ties: " + ties)
+
+    // play again?   //confirm?
+        // restart the game
+    // otherwise
+        // thanks for playing!
+
+    playAgain = confirm("Play again?");
+}
